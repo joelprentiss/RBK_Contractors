@@ -602,6 +602,12 @@ function ContactSection() {
   )
 }
 
+const AUTOCOMPLETE: Record<string, string> = {
+  companyName: 'organization',
+  email: 'email',
+  phone: 'tel',
+}
+
 function Field({
   label,
   name,
@@ -616,7 +622,13 @@ function Field({
   return (
     <label className={className}>
       <span className="form-label">{label}</span>
-      <input name={name} type={type} className="form-input" />
+      <input
+        name={name}
+        type={type}
+        autoComplete={AUTOCOMPLETE[name]}
+        inputMode={type === 'tel' ? 'tel' : undefined}
+        className="form-input"
+      />
     </label>
   )
 }

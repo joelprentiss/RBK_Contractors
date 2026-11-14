@@ -14,7 +14,6 @@
 }
 
 html {
-  scroll-behavior: smooth;
   scroll-padding-top: 88px;
 }
 
@@ -75,5 +74,12 @@ textarea:focus-visible {
 
   .form-input {
     @apply min-h-12 w-full border border-[#d8cdbd] bg-white px-4 py-3 text-base text-[#24211e] outline-none transition focus:border-[#a96018];
+  }
+}
+
+/* Smooth scrolling only when the user has not asked for reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
   }
 }
